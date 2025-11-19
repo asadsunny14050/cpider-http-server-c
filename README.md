@@ -4,7 +4,7 @@ A simple, multithreaded HTTP server written in C for serving static files and ha
 
 - ⚠️ Not production-ready. This project is meant for learning purposes only, designed to help understand systems-level programming, socket handling, and concurrent request processing in C.
 
-## ✨ Usage
+## Usage
 To start the cpider static file server, run the executable with the path to the directory you wish to serve.
 
     ./cpider ./public_html
@@ -30,11 +30,11 @@ You can customize the server's behavior using the following optional command-lin
 This command will start cpider with ***12 worker threads***, listening on ***port 5000***, and serving static files from the ./my_website_files directory.
 
 
-### 🏗️ Building:
-🐧 Linux or WSL Only
+### Building:
+Linux or WSL Only
 
 This server runs only on Linux or WSL environments. It uses POSIX threads and Linux socket APIs.
-⚙️ With Makefile
+With Makefile
 
 Clone the repo and run:
 
@@ -43,7 +43,7 @@ Clone the repo and run:
 Make sure you're inside a Linux shell or WSL terminal with gcc installed and the zlib library which should be pre-installed
 
 
-### 🚀 Running
+### Running
 
     ./cpider ./public
 
@@ -58,7 +58,7 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Will attempt to serve index.html at root (/, /home, /index.html).
 
-### 📨 POST Support
+### POST Support
 
 - Only enabled on /contact.
 
@@ -68,9 +68,9 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Returns 201 Created on success.
 
-## ✨ Features
+## Features
 
-### 🧵 Multithreaded Request Handling with Thread Pool
+### Multithreaded Request Handling with Thread Pool
 
 -    Handles multiple clients concurrently using a custom-built thread pool.
 
@@ -78,20 +78,20 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Each client is processed independently, with logging tagged by client (port-based ID).
 
-### ✅ Supports GET and POST
+### Supports GET and POST
 
 - **GET**: Serves static files with MIME-compliant headers.
   
 - **POST**: Accepts form submissions at /contact. 
    - Parses application/x-www-form-urlencoded bodies and saves to a records.txt file, responding with 201 Created.
 
-### 🧠 Manual HTTP Request Parsing
+### Manual HTTP Request Parsing
 
 - Parses the request line and headers manually.
 
 - Rejects malformed requests with 400 Bad Request.
 
-### 🗂️ Static File Serving
+### Static File Serving
 
 - Serves all compatible file types from a user-specified directory.
   
@@ -103,7 +103,7 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Large files are read and sent in chunks using multiple write() calls with correct Content-Length.
 
-### 🔄 Persistent Connections (Keep-Alive)
+### Persistent Connections (Keep-Alive)
 
 - Supports multiple requests per connection via Keep-Alive.
 
@@ -111,7 +111,7 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Each client’s request lifecycle is traced with its own ID (port-based).
 
-### 🗜️ Gzip Compression (Accept-Encoding)
+### Gzip Compression (Accept-Encoding)
 - Automatic Pre-compression: cpider scans the served directory and automatically creates Gzip-compressed versions of static files.
 
 - Dedicated Storage: Compressed files are stored in a compressed/ folder within the served directory.
@@ -122,13 +122,13 @@ Make sure you're inside a Linux shell or WSL terminal with gcc installed and the
 
 - Benefits: Reduces bandwidth, speeds up loading times, and improves server performance by offloading on-the-fly compression.
 
-### 📜 Color-Coded Logging
+### Color-Coded Logging
 
 - Logs are colorized for clarity:
 
 ![image](https://github.com/user-attachments/assets/20ba9705-f02d-4027-b6ab-1961307b5551)
 
-### 🧪 Designed for Learning, Not Deployment
+### Designed for Learning, Not Deployment
 
 This server is not secure, not optimized, and not robust enough for real-world deployment.
 
@@ -147,4 +147,3 @@ Networking with C sockets
 
 MIT
 
-Let me know if you'd like a section for "Example Requests" or "Folder Structure" — happy to generate that too.
